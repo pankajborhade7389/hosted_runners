@@ -1,0 +1,29 @@
+name: Self Hosted Runners Example
+
+env:
+  TraderName: "Harshad Mehta"
+  Designation: "Big Bull of Bombay Dalal Street"
+  Message: "Welcome to Satta Bazar"
+
+on: 
+  push: 
+    branches: ["main", "master"]
+
+  workflow_dispatch:
+
+
+jobs:
+  demojob1:
+    runs-on: self-hosted
+    steps: 
+    - uses: actions/checkout@v3
+
+    - name: Run a one-line script 
+      run: echo "Hello $TraderName $Designation"
+
+    - name: Run a multi-line script
+      run: |
+        echo "In self hosted runner"
+        echo "Hello $EmployeeName"
+        echo $Message
+        echo "Adding windows runner"
